@@ -1,32 +1,50 @@
 [bits 16]
+
 [org 0x7c00]
+
+mov ah, 0x00
+
+mov al, 0x03
+
+int 0x10
 
 mov [Boot_Disk], dl
 
+
+
 mov bp, 0x7c00
+
 mov sp, bp
 
-call ReadDisk
+
+
+call DiskRead
+
+
 
 jmp Program_Space
-%include "ReadDisk.asm"
+
+
+
 
 
 jmp $
-;jmp Enable32BitMode
+
+%include "ReadDisk.asm"
 
 
-
-
-
-;[extern _start]
-
-;call _start
 
   
+
 times 510 - ($ - $$) db 0 ;fills the rest of the bytes till byte 510 with 0s
+
 db 0x55 ;sets the last 2 bytes to 0x55 and 0xaa, so the bios knows its bootable
+
 db 0xaa
+
+
+
+
 
 
    
