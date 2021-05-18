@@ -1,8 +1,9 @@
 nasm Bootloader.asm -f bin -o Bootloader.bin 
-nasm Sector2.asm -f bin -o Sector2.bin #change to elf32 format and .o 
-#gcc -ffreestanding -mno-red-zone -m32 -c "ReadText.cpp" -o "ReadText.o"
-#ld -m elf_i386 -o Kernel.tmp -Ttext 0x7e00 Sector2.o ReadText.o
+nasm Sector2.asm -f elf32 -o Sector2.o
+gcc -ffreestanding -m32 -fno-pie -mno-red-zone -c "ReadText.cpp" -o "ReadText.o" # -m32
 
-#objcopy -O binary Sector2.bin Kernel.bin #change to Kernel.tmp
+ld -m elf_i386 -o Kernel.tmp -Ttext 0x7e00 Sector2.o ReadText.o
 
-cat Bootloader.bin Sector2.bin > Bootloader.flp
+objcopy -O binary Kernel.tmp Kernel.bin 
+
+cat Bootloader.bin Kernel.bin > Bootloader.flp
