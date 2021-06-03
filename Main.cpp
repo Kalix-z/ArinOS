@@ -14,19 +14,19 @@ extern "C" void _start()
         char* key = GetKey();
         CheckForShift();
         /* 1311691 is the code i gave to no key being pressed */
-        if(key != (char*)1311691) {
+        if(key != (char*)1311691 && key != (char*)1001111111111011 /* enter */ && key != (char*)1101111111111111 /* backspace */) {
             
             Printf(key, 15);
         } 
+        else if(key == (char*)1001111111111011) {
+            Printf("\n", 15);
+        }
+        else if(key == (char*)1101111111111111) {
+            Backspace();
+        }
     }
 
 }
-
-
-/* TODO: 
-*  figure out how to add \ character to keyboard mapper (KeyboardInput.cpp)
-*  figure out how to add " character to keyboard mapper (KeyboardInput.cpp)
-*/
 
   
 
