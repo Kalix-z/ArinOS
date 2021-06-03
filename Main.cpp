@@ -21,13 +21,17 @@ extern "C" void _start()
     }
 
 }
-/**
- * 
- * 
- *     
- * char* ptr = (char*)0xB8000000;
-    *ptr = 0x4F;
-    ptr++;
-    *ptr = 0x20;
- **/
+
+
+/* TODO: 
+*  figure out how to add \ character to keyboard mapper (KeyboardInput.cpp)
+*  figure out how to add " character to keyboard mapper (KeyboardInput.cpp)
+*/
+
+  
+
+
+
+
+
 

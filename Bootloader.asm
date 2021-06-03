@@ -6,22 +6,14 @@ mov [Boot_Disk], dl
 mov bp, 0x7c00
 mov sp, bp
 
-call ReadDisk
+call DiskRead
+
 
 jmp Program_Space
-%include "ReadDisk.asm"
 
 
 jmp $
-;jmp Enable32BitMode
-
-
-
-
-
-;[extern _start]
-
-;call _start
+%include "ReadDisk.asm"
 
   
 times 510 - ($ - $$) db 0 ;fills the rest of the bytes till byte 510 with 0s
