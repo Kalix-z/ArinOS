@@ -31,10 +31,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)10010111;
+                return (char*)1001111111111011;
             }
             else {
-                return (char*)10010111;
+                return (char*)1001111111111011;
             }
         }
     }
@@ -47,10 +47,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"backspace";
+                return (char*)1101111111111111;
             }
             else {
-                return (char*)"backspace";
+                return (char*)1101111111111111;
             }
         }
     }
@@ -75,6 +75,166 @@ char* GetKey() {
     }
 
 
+    /* 1 ! */
+    if(ScanCode == 0x02) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return (char*)"1";
+            }
+            else {
+                return (char*)"!";
+            }
+        }
+    }
+    if(ScanCode == 0x82) {
+        toggle = false;
+    }
+
+    /* 2 @ */
+    if(ScanCode == 0x03) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return (char*)"2";
+            }
+            else {
+                return (char*)"@";
+            }
+        }
+    }
+    if(ScanCode == 0x83) {
+        toggle = false;
+    }
+
+    /* 3 # */
+    if(ScanCode == 0x04) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return (char*)"3";
+            }
+            else {
+                return (char*)"#";
+            }
+        }
+    }
+    if(ScanCode == 0x84) {
+        toggle = false;
+    }
+
+    /* 4 $ */
+    if(ScanCode == 0x05) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return (char*)"4";
+            }
+            else {
+                return (char*)"$";
+            }
+        }
+    }
+    if(ScanCode == 0x85) {
+        toggle = false;
+    }
+
+    /* 5 % */
+    if(ScanCode == 0x06) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return (char*)"5";
+            }
+            else {
+                return (char*)"%";
+            }
+        }
+    }
+    if(ScanCode == 0x86) {
+        toggle = false;
+    }
+
+    /* 6 ^ */
+    if(ScanCode == 0x07) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return (char*)"6";
+            }
+            else {
+                return (char*)"^";
+            }
+        }
+    }
+    if(ScanCode == 0x87) {
+        toggle = false;
+    }
+
+    /* 7 & */
+    if(ScanCode == 0x08) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return (char*)"7";
+            }
+            else {
+                return (char*)"&";
+            }
+        }
+    }
+    if(ScanCode == 0x88) {
+        toggle = false;
+    }
+
+    /* 8 * */
+    if(ScanCode == 0x09) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return (char*)"8";
+            }
+            else {
+                return (char*)"*";
+            }
+        }
+    }
+    if(ScanCode == 0x89) {
+        toggle = false;
+    }
+
+    /* 9 ( */
+    if(ScanCode == 0x0A) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return (char*)"9";
+            }
+            else {
+                return (char*)"(";
+            }
+        }
+    }
+    if(ScanCode == 0x8A) {
+        toggle = false;
+    }
+
+    /* 0 ) */
+    if(ScanCode == 0x0B) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return (char*)"0";
+            }
+            else {
+                return (char*)")";
+            }
+        }
+    }
+    if(ScanCode == 0x8B) {
+        toggle = false;
+    }
+    /* q */
     /* make code checking (called when key is pressed) */
     if(ScanCode == 0x10) {     
         if(toggle == false) {
@@ -276,7 +436,7 @@ char* GetKey() {
                 return (char*)"|";
             }
             else {
-                return (char*)"|";
+                return (char*)R"(\)";
             }
         }
     }
@@ -452,7 +612,7 @@ char* GetKey() {
                 return (char*)"'";
             }
             else {
-                return (char*)"'";
+                return (char*)R"(")";
             }
         }
     }
@@ -621,68 +781,7 @@ char* GetKey() {
     if(ScanCode == 0xB5) {
         toggle = false;
     }
-    /* Keyboard Layout 
-    switch (inb(0x60))
-    {
-    case 0x10:
-        return (char*)"q";
-    case 0x11:
-        return (char*)"w";
-    case 0x12:
-        return (char*)"e";
-    case 0x13:
-        return (char*)"r";
-    case 0x14:
-        return (char*)"t";
-    case 0x15:
-        return (char*)"y";
-    case 0x16:
-        return (char*)"u";
-    case 0x17:
-        return (char*)"i";
-    case 0x18:
-        return (char*)"o";
-    case 0x19:
-        return (char*)"p";
-    case 0x9E:
-        return (char*)"a";
-    case 31:
-        return (char*)"s";
-    case 32:
-        return (char*)"d";
-    case 33:
-        return (char*)"f";
-    case 34:
-        return (char*)"g";
-    case 35:
-        return (char*)"h";
-    case 36:
-        return (char*)"j";
-    case 37:
-        return (char*)"k";
-    case 38:
-        return (char*)"l";
-    case 39:
-        return (char*)";";
-    case 40:
-        return (char*)"'";
-    case 44:
-        return (char*)"z";
-    case 45:
-        return (char*)"x";
-    case 46:
-        return (char*)"c";
-    case 47:
-        return (char*)"v";
-    case 48:
-        return (char*)"b";
-    case 49:
-        return (char*)"n";
-    case 50:
-        return (char*)"m";
-
-    }
-    */
+    
 
     return (char*)1311691;
 }
