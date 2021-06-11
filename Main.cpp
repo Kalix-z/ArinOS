@@ -1,37 +1,39 @@
 #include "Print.h"
-#include "Types.h"
 #include "IO.h"
-#include "Color.h"
 #include "KeyboardInput.h"
-#include "GraphicsDriver.h" 
+#include "String.h"
+#include "CommandHandler.h"
+#include "ReadDisk.cpp"
 
 extern "C" void _start()
 {
-    SetPositionFromCoords(25, 0);
-    Printf("Starting Slav Dog OS\n", 2);
-    while(true) {
-        
-        char* key = GetKey();
+    SetPositionFromCoords(26, 0);
+    String StartingText = "Starting Slav Dog OS\n";
+    Printf(StartingText, 2);
+    Printf('\n', 15);
+    AddTerminalSign();
+    while(true) { 
+        char key = GetKey();
         CheckForShift();
-        /* 1311691 is the code i gave to no key being pressed */
-        if(key != (char*)1311691) {
-            
-            Printf(key, 15);
+        /* NULL is the code for no key being pressed */
+        if(key != 0x00 && key != enter /* enter */ && key != backspace /* backspace */) {  
+            textCount++;
+            Printf(key, 15);        
+            KeyPressed(key);
         } 
+        /* enter */
+        else if(key == enter) {
+            Printf('\n', 15);
+            EnterPressed();
+        }
+        /* Backspace */
+        else if(key == backspace) {
+            Backspace();
+        }
     }
 
 }
-
-
 /* TODO: 
-*  figure out how to add \ character to keyboard mapper (KeyboardInput.cpp)
-*  figure out how to add " character to keyboard mapper (KeyboardInput.cpp)
+ * Finish String.Apppend()
+ * Dont Let User Backspace past what they wrote
 */
-
-  
-
-
-
-
-
-

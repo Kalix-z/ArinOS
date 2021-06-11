@@ -5,6 +5,9 @@ mov [Boot_Disk], dl
 
 mov bp, 0x7c00
 mov sp, bp
+mov ah, 0x00
+mov al, 0x03
+int 0x10
 
 call DiskRead
 
@@ -19,6 +22,7 @@ jmp $
 times 510 - ($ - $$) db 0 ;fills the rest of the bytes till byte 510 with 0s
 db 0x55 ;sets the last 2 bytes to 0x55 and 0xaa, so the bios knows its bootable
 db 0xaa
+
 
 
    

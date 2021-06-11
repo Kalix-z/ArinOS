@@ -1,3 +1,3 @@
 #pragma once
-char* GetKey();
+char GetKey();
 void CheckForShift();

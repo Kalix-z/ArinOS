@@ -10,6 +10,10 @@ INPUT
     Math.o
     KeyboardInput.o
     GraphicsDriver.o
+    String.o
+    CustomMemory.o
+    System.o
+    CommandHandler.o
 )
 
 OUTPUT

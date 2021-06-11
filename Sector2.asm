@@ -1,8 +1,6 @@
 ;[org 0x7e00]
 [bits 16]
-mov ah, 0x00
-  mov al, 0x03  ; text mode 80x25 16 colours
-  int 0x10
+
 
 jmp Enable32BitMode
 enable_A20:
@@ -41,7 +39,7 @@ Start32Bit:
     mov es, ax
     mov fs, ax
     mov gs, ax
-    mov esp, 0x493E0
+    mov esp, 0x300000 ;sets stack pointer at 0x300000
     
     ; Loads the IDT defined in '_idtp' into the processor.
 ; This is declared in C as 'extern void idt_load();'
@@ -57,4 +55,4 @@ Start32Bit:
 
 
 
-times 2048 - ($-$$) db 0 ;fills the disk with 2kb of 0's
+;times 2048 - ($-$$) db 0 ;fills the disk with 2kb of 0's

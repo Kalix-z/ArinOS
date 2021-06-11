@@ -1,0 +1,5 @@
+ADD float a, float b, returns a + b
+SUB float a, float b, returns a - b
+MULTIPLY float a, float b, returns a * b
+DIVIDE float a, float b, returns a / b
+ECHO char* string, returns string

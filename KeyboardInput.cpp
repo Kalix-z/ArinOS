@@ -23,18 +23,49 @@ void CheckForShift() {
 
 }
 
-char* GetKey() {
+char GetKey() {
     
     uint_8 ScanCode = inb(0x60);
+    /* = + */
+    if(ScanCode == 0x0D) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return '=';
+            }
+            else {
+                return '+';
+            }
+        }
+    }
+    if(ScanCode == 0x8D) {
+        toggle = false;
+    }
+    /* - _ */
+    if(ScanCode == 0x0C) {     
+        if(toggle == false) {
+            toggle = true;
+            if (isShift == false) {
+                return '-';
+            }
+            else {
+                return '_';
+            }
+        }
+    }
+    if(ScanCode == 0x8C) {
+        toggle = false;
+    }
+    
     /* enter */
     if(ScanCode == 0x1C) {     
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)1001111111111011;
+                return enter;
             }
             else {
-                return (char*)1001111111111011;
+                return enter;
             }
         }
     }
@@ -47,10 +78,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)1101111111111111;
+                return backspace;
             }
             else {
-                return (char*)1101111111111111;
+                return backspace;
             }
         }
     }
@@ -63,10 +94,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)" ";
+                return ' ';
             }
             else {
-                return (char*)" ";
+                return ' ';
             }
         }
     }
@@ -80,10 +111,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"1";
+                return '1';
             }
             else {
-                return (char*)"!";
+                return '!';
             }
         }
     }
@@ -96,10 +127,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"2";
+                return '2';
             }
             else {
-                return (char*)"@";
+                return '@';
             }
         }
     }
@@ -112,10 +143,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"3";
+                return '3';
             }
             else {
-                return (char*)"#";
+                return '#';
             }
         }
     }
@@ -128,10 +159,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"4";
+                return '4';
             }
             else {
-                return (char*)"$";
+                return '$';
             }
         }
     }
@@ -144,10 +175,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"5";
+                return '5';
             }
             else {
-                return (char*)"%";
+                return '%';
             }
         }
     }
@@ -160,10 +191,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"6";
+                return '6';
             }
             else {
-                return (char*)"^";
+                return '^';
             }
         }
     }
@@ -176,10 +207,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"7";
+                return '7';
             }
             else {
-                return (char*)"&";
+                return '&';
             }
         }
     }
@@ -192,10 +223,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"8";
+                return '8';
             }
             else {
-                return (char*)"*";
+                return '*';
             }
         }
     }
@@ -208,10 +239,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"9";
+                return '9';
             }
             else {
-                return (char*)"(";
+                return '(';
             }
         }
     }
@@ -224,10 +255,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"0";
+                return '0';
             }
             else {
-                return (char*)")";
+                return ')';
             }
         }
     }
@@ -240,10 +271,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"q";
+                return 'q';
             }
             else {
-                return (char*)"Q";
+                return 'Q';
             }
         }
     }
@@ -257,10 +288,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"w";
+                return 'w';
             }
             else {
-                return (char*)"W";
+                return 'W';
             }
         }
     }
@@ -273,10 +304,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"e";
+                return 'e';
             }
             else {
-                return (char*)"E";
+                return 'E';
             }
         }
     }
@@ -289,10 +320,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"r";
+                return 'r';
             }
             else {
-                return (char*)"R";
+                return 'R';
             }
         }
     }
@@ -305,10 +336,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"t";
+                return 't';
             }
             else {
-                return (char*)"T";
+                return 'T';
             }
         }
     }
@@ -321,10 +352,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"y";
+                return 'y';
             }
             else {
-                return (char*)"Y";
+                return 'Y';
             }
         }
     }
@@ -337,10 +368,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"u";
+                return 'u';
             }
             else {
-                return (char*)"U";
+                return 'U';
             }
         }
     }
@@ -353,10 +384,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"i";
+                return 'i';
             }
             else {
-                return (char*)"I";
+                return 'I';
             }
         }
     }
@@ -369,10 +400,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"o";
+                return 'o';
             }
             else {
-                return (char*)"O";
+                return 'O';
             }
         }
     }
@@ -385,10 +416,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"p";
+                return 'p';
             }
             else {
-                return (char*)"P";
+                return 'P';
             }
         }
     }
@@ -401,10 +432,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"[";
+                return '[';
             }
             else {
-                return (char*)"{";
+                return '{';
             }
         }
     }
@@ -417,10 +448,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"]";
+                return ']';
             }
             else {
-                return (char*)"}";
+                return '}';
             }
         }
     }
@@ -433,10 +464,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"|";
+                return '\\';
             }
             else {
-                return (char*)R"(\)";
+                return '|';
             }
         }
     }
@@ -449,10 +480,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if(isShift == false) {
-                return (char*)"a";
+                return 'a';
             }
             else {
-                return (char*)"A";
+                return 'A';
             }
         }
     }
@@ -465,10 +496,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"s";
+                return 's';
             }
             else {
-                return (char*)"S";
+                return 'S';
             }
         }
     }
@@ -481,10 +512,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"d";
+                return 'd';
             }
             else {
-                return (char*)"D";
+                return 'D';
             }
         }
     }
@@ -497,10 +528,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"f";
+                return 'f';
             }
             else {
-                return (char*)"F";
+                return 'F';
             }
         }
     }
@@ -513,10 +544,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"g";
+                return 'g';
             }
             else {
-                return (char*)"G";
+                return 'G';
             }
         }
     }
@@ -529,10 +560,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"h";
+                return 'h';
             }
             else {
-                return (char*)"H";
+                return 'H';
             }
         }
     }
@@ -545,10 +576,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"j";
+                return 'j';
             }
             else {
-                return (char*)"J";
+                return 'J';
             }
         }
     }
@@ -561,10 +592,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"k";
+                return 'k';
             }
             else {
-                return (char*)"K";
+                return 'K';
             }
         }
     }
@@ -577,10 +608,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"l";
+                return 'l';
             }
             else {
-                return (char*)"L";
+                return 'L';
             }
         }
     }
@@ -593,10 +624,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)";";
+                return ';';
             }
             else {
-                return (char*)":";
+                return ':';
             }
         }
     }
@@ -609,10 +640,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"'";
+                return '\'';
             }
             else {
-                return (char*)R"(")";
+                return '\'';
             }
         }
     }
@@ -627,10 +658,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"z";
+                return 'z';
             }
             else {
-                return (char*)"Z";
+                return 'Z';
             }
         }
     }
@@ -643,10 +674,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"x";
+                return 'x';
             }
             else {
-                return (char*)"X";
+                return 'X';
             }
         }
     }
@@ -659,10 +690,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"c";
+                return 'c';
             }
             else {
-                return (char*)"C";
+                return 'C';
             }
         }
     }
@@ -675,10 +706,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"v";
+                return 'v';
             }
             else {
-                return (char*)"V";
+                return 'V';
             }
         }
     }
@@ -691,10 +722,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"b";
+                return 'b';
             }
             else {
-                return (char*)"B";
+                return 'B';
             }
         }
     }
@@ -707,10 +738,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"n";
+                return 'n';
             }
             else {
-                return (char*)"N";
+                return 'N';
             }
         }
     }
@@ -723,10 +754,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"m";
+                return 'm';
             }
             else {
-                return (char*)"M";
+                return 'M';
             }
         }
     }
@@ -739,10 +770,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)",";
+                return ',';
             }
             else {
-                return (char*)"<";
+                return '<';
             }
         }
     }
@@ -755,10 +786,10 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)".";
+                return '.';
             }
             else {
-                return (char*)">";
+                return '>';
             }
         }
     }
@@ -771,17 +802,16 @@ char* GetKey() {
         if(toggle == false) {
             toggle = true;
             if (isShift == false) {
-                return (char*)"/";
+                return '/';
             }
             else {
-                return (char*)"?";
+                return '?';
             }
         }
     }
     if(ScanCode == 0xB5) {
         toggle = false;
     }
-    
 
-    return (char*)1311691;
+    return 0x00;
 }
