@@ -1,0 +1,31 @@
+methods:
+    all methods should use snake_case
+    all methods should use the curly brace on the same line
+    ex.
+    void example_method(int x) {
+
+    }
+
+variables:
+    all variables should be named clear and not one letter words except for i, j and other special cases
+    all variables should use camelCase
+    all pointers should have the star before the space
+    ex. 
+    void example_method() {
+        int exampleInteger = 3;
+        int* pInt = &exampleInteger;
+        exampleInteger++;
+    }
+
+structs / classes: 
+    all structs and classes should be StartingWithEachCapital
+    ex.
+    class ExampleClass {
+        
+    };
+
+    struct ExampleStruct {
+
+    }
+
+
